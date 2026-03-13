@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>一般社団法人ウイズささやま | 丹波篠山 ここらへんの田舎</title>
+  <script>
+    const pwd = prompt("関係者専用プレビューです。パスワードを入力してください:", "");
+    if (pwd !== "1111") {
+      document.write("<h1 style='text-align:center;margin-top:50px;font-family:sans-serif;'>パスワードが違います</h1>");
+      window.stop();
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
