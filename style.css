@@ -415,13 +415,21 @@ img {
 
 .guide-map-area {
   position: relative;
-  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  padding-bottom: 60px;
 }
 .japan-map {
   position: absolute;
   left: -50px;
-  bottom: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 400px;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .guides-grid {
@@ -430,7 +438,7 @@ img {
   gap: 40px;
   position: relative;
   z-index: 2;
-  margin-left: 100px; /* Offset from map */
+  width: 100%;
 }
 
 .guide-item {
@@ -459,10 +467,15 @@ img {
 
 /* Handdrawn dialogue */
 .dialogue-box {
-  position: absolute;
-  bottom: 50px;
-  left: 200px;
+  position: relative;
   z-index: 2;
+  background: var(--color-white);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  border: 1px dashed var(--color-primary);
+  width: 100%;
+  max-width: 600px;
 }
 
 .dialogue-title {
@@ -470,32 +483,37 @@ img {
   font-weight: 700;
   margin-bottom: 20px;
   font-family: var(--font-accent);
+  text-align: center;
 }
 
 .dialogue-bubbles {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   font-family: var(--font-accent);
   font-size: 0.95rem;
 }
 
 .bubble {
-  position: relative;
-  padding: 8px 15px;
+  padding: 10px 20px;
   border-radius: 20px;
   max-width: 80%;
+  width: fit-content;
+  line-height: 1.5;
 }
 
 .bubble.left {
   align-self: flex-start;
-  /* Visual styling of a speech bubble could go here */
+  background: var(--color-bg-light);
+  border-bottom-left-radius: 0;
 }
 
 .bubble.right {
   align-self: flex-end;
-  color: var(--color-primary);
+  background: var(--color-secondary);
+  color: var(--color-text-dark);
   font-weight: bold;
+  border-bottom-right-radius: 0;
 }
 
 /* Footer */
@@ -659,16 +677,7 @@ img {
     flex-direction: column;
     gap: 20px;
   }
-  .dialogue-box {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    margin-top: 40px;
-  }
   .japan-map {
     display: none;
-  }
-  .guides-grid {
-    margin-left: 0;
   }
 }
