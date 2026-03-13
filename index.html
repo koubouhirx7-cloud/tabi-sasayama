@@ -4,19 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>一般社団法人ウイズささやま | 丹波篠山 ここらへんの田舎</title>
-  <script>
-    const pwd = prompt("関係者専用プレビューです。パスワードを入力してください:", "");
-    if (pwd !== "1111") {
-      document.write("<h1 style='text-align:center;margin-top:50px;font-family:sans-serif;'>パスワードが違います</h1>");
-      window.stop();
+  <style>
+    body.locked { overflow: hidden; }
+    body.locked > *:not(#preview-lock-screen) { display: none !important; }
+    #preview-lock-screen {
+      position: fixed; inset: 0; background: #faf9f6; z-index: 99999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
     }
-  </script>
+    .lock-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; }
+    .lock-box h1 { font-size: 20px; margin-bottom: 20px; color: #333; }
+    .lock-box input { padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 6px; width: 220px; text-align: center; margin-bottom: 15px; letter-spacing: 2px; }
+    .lock-box button { background: #4a5d4e; color: white; border: none; padding: 12px 30px; font-size: 16px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+    .lock-box button:hover { background: #3a4a3e; }
+    #lock-error { color: #d9534f; font-size: 14px; margin-top: 15px; display: none; margin-bottom: 0; }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="locked">
+
+  <div id="preview-lock-screen">
+    <div class="lock-box">
+      <h1>関係者プレビュー</h1>
+      <input type="password" id="preview-pwd-input" placeholder="パスワードを入力">
+      <br>
+      <button onclick="unlockPreview()">閲覧する</button>
+      <p id="lock-error">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    function unlockPreview() {
+      let pwd = document.getElementById('preview-pwd-input').value;
+      if (pwd === "1111" || pwd === "１１１１") {
+        document.body.classList.remove('locked');
+        document.getElementById('preview-lock-screen').style.display = 'none';
+      } else {
+        document.getElementById('lock-error').style.display = 'block';
+      }
+    }
+    document.getElementById('preview-pwd-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') unlockPreview();
+    });
+  </script>
 
   <!-- HEADER -->
   <header class="header">
