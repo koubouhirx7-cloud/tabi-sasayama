@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外から丹波篠山へ - 一般社団法人ウイズささやま</title>
+  <style>
+    body.locked { overflow: hidden; }
+    body.locked > *:not(#preview-lock-screen) { display: none !important; }
+    #preview-lock-screen {
+      position: fixed; inset: 0; background: #faf9f6; z-index: 99999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+    }
+    .lock-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; }
+    .lock-box h1 { font-size: 20px; margin-bottom: 20px; color: #333; }
+    .lock-box input { padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 6px; width: 220px; text-align: center; margin-bottom: 15px; letter-spacing: 2px; }
+    .lock-box button { background: #4a5d4e; color: white; border: none; padding: 12px 30px; font-size: 16px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+    .lock-box button:hover { background: #3a4a3e; }
+    #lock-error { color: #d9534f; font-size: 14px; margin-top: 15px; display: none; margin-bottom: 0; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <div id="preview-lock-screen">
+    <div class="lock-box">
+      <h1>関係者プレビュー</h1>
+      <input type="password" id="preview-pwd-input" placeholder="パスワードを入力">
+      <br>
+      <button onclick="unlockPreview()">閲覧する</button>
+      <p id="lock-error">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    function unlockPreview() {
+      let pwd = document.getElementById('preview-pwd-input').value;
+      if (pwd === "1111" || pwd === "１１１１") {
+        document.body.classList.remove('locked');
+        document.getElementById('preview-lock-screen').style.display = 'none';
+      } else {
+        document.getElementById('lock-error').style.display = 'block';
+      }
+    }
+    document.getElementById('preview-pwd-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') unlockPreview();
+    });
+  </script>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <h1><a href="index.html" style="color:inherit; text-decoration:none;">丹波篠山</a></h1>
+      </div>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="index.html#home">ホーム<span>HOME</span></a></li>
+          <li><a href="index.html#stay">行ってみる<span>Stay</span></a></li>
+          <li><a href="index.html#news">出来事<span>News</span></a></li>
+          <li><a href="index.html#about">案内人<span>About us</span></a></li>
+          <li><a href="index.html#contact">お問い合わせ<span>Contact</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    <section class="detail-hero container block-padding">
+      <div class="detail-header-text">
+        <h1 class="page-title">海外から丹波篠山へ</h1>
+        <p class="detail-meta mt-3">Inbound</p>
+      </div>
+      
+      <div class="detail-hero-img-wrap mt-5">
+        <img src="https://images.unsplash.com/photo-1542051812871-75f83cbbf62b?q=80&w=1200&auto=format&fit=crop" alt="海外から丹波篠山へ" class="detail-hero-img">
+      </div>
+    </section>
+
+    <section class="detail-content section-padding bg-light">
+      <div class="container">
+        <div class="text-center" style="max-width:800px; margin:0 auto;">
+          <h3 class="content-heading" style="font-size:1.8rem; border-bottom:none; margin-bottom:10px;">Authentic Experience in the Japanese Countryside</h3>
+          <p style="font-size:1.3rem; font-weight:700; color:var(--color-primary); margin-bottom:40px;">日本の田舎でホンモノの体験を</p>
+          
+          <div style="background:#fff; padding:50px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+            <h4 style="font-size:2rem; font-weight:700; letter-spacing:0.1em; margin-bottom:20px; color:#c0392b;">SASAGUIDE</h4>
+            <p style="font-size:1.1rem; line-height:2; text-align:left; max-width:600px; margin:0 auto 30px;">
+              海外からのお客様へ向けた、丹波篠山の深い魅力を体験できる特別なローカルガイドプログラムです。<br><br>
+              日本の原風景が残る農村で、地域の人々と触れ合い、伝統的な文化や食を深く味わう旅を提供します。通訳案内士や経験豊富なローカルガイドがサポートいたします。
+            </p>
+            
+            <a href="download.html" class="btn-primary" style="display:inline-block; width:300px;">SASAGUIDE カタログをダウンロード</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <h2>丹波篠山</h2>
+          <p>"里山暮らし"</p>
+        </div>
+        
+        <div class="footer-links">
+          <ul class="footer-nav">
+            <li><a href="index.html#home">HOME</a></li>
+            <li><a href="index.html#stay">Stay</a></li>
+            <li><a href="index.html#news">News</a></li>
+            <li><a href="index.html#about">About us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          
+          <ul class="footer-subnav">
+            <li><a href="index.html#contact">会社案内</a></li>
+            <li><a href="download.html">各種カタログダウンロード</a></li>
+          </ul>
+          
+          <ul class="footer-legal">
+            <li><a href="#">旅行業約款(PDF)</a></li>
+            <li><a href="#">旅行条件書(PDF)</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>一般社団法人ウイズささやま<br>
+        〒669-2321 兵庫県丹波篠山市黒岡191 丹波篠山市民センター内  079-552-7373</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

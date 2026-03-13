@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>地方の楽しみ見〜ぃつけた - 一般社団法人ウイズささやま</title>
+  <style>
+    body.locked { overflow: hidden; }
+    body.locked > *:not(#preview-lock-screen) { display: none !important; }
+    #preview-lock-screen {
+      position: fixed; inset: 0; background: #faf9f6; z-index: 99999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+    }
+    .lock-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; }
+    .lock-box h1 { font-size: 20px; margin-bottom: 20px; color: #333; }
+    .lock-box input { padding: 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 6px; width: 220px; text-align: center; margin-bottom: 15px; letter-spacing: 2px; }
+    .lock-box button { background: #4a5d4e; color: white; border: none; padding: 12px 30px; font-size: 16px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+    .lock-box button:hover { background: #3a4a3e; }
+    #lock-error { color: #d9534f; font-size: 14px; margin-top: 15px; display: none; margin-bottom: 0; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <div id="preview-lock-screen">
+    <div class="lock-box">
+      <h1>関係者プレビュー</h1>
+      <input type="password" id="preview-pwd-input" placeholder="パスワードを入力">
+      <br>
+      <button onclick="unlockPreview()">閲覧する</button>
+      <p id="lock-error">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    function unlockPreview() {
+      let pwd = document.getElementById('preview-pwd-input').value;
+      if (pwd === "1111" || pwd === "１１１１") {
+        document.body.classList.remove('locked');
+        document.getElementById('preview-lock-screen').style.display = 'none';
+      } else {
+        document.getElementById('lock-error').style.display = 'block';
+      }
+    }
+    document.getElementById('preview-pwd-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') unlockPreview();
+    });
+  </script>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <h1><a href="index.html" style="color:inherit; text-decoration:none;">丹波篠山</a></h1>
+      </div>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="index.html#home">ホーム<span>HOME</span></a></li>
+          <li><a href="index.html#stay" class="active">行ってみる<span>Stay</span></a></li>
+          <li><a href="index.html#news">出来事<span>News</span></a></li>
+          <li><a href="index.html#about">案内人<span>About us</span></a></li>
+          <li><a href="index.html#contact">お問い合わせ<span>Contact</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;"> <!-- Fixed header offset -->
+    
+    <!-- DETAIL HEADER -->
+    <section class="detail-hero container block-padding">
+      <div class="detail-header-text">
+        <h1 class="page-title">地方の楽しみ見〜ぃつけた</h1>
+        <div class="tags justify-center mt-3">
+          <span>丹波・丹波篠山</span><span>生活</span><span>自然</span>
+        </div>
+        <p class="detail-meta mt-3">2026年8月22日（土）〜23日（日） ｜ 1泊2日</p>
+      </div>
+      
+      <div class="detail-hero-img-wrap mt-5">
+        <img src="https://images.unsplash.com/photo-1558234394-0cfb4b73cb43?q=80&w=1200&auto=format&fit=crop" alt="地方の楽しみ見〜ぃつけた" class="detail-hero-img">
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="detail-content section-padding bg-light">
+      <div class="container">
+        <div class="detail-grid">
+          
+          <div class="detail-main">
+            <h3 class="content-heading">プログラムについて</h3>
+            <p>丹波篠山の豊かな自然の中で、土に触れ、器を作る週末の体験です。出来上がった器は、大切な人への贈り物として、あるいは自分へのご褒美として。里山のゆったりとした時間とともに、本物の手仕事に触れる2日間を提供します。</p>
+            
+            <h3 class="content-heading mt-5">行程（スケジュール）</h3>
+            <div class="schedule-box">
+              <h4 class="schedule-day">1日目（7/11 土）</h4>
+              <ul class="schedule-list">
+                <li><span class="time">PM</span> <span class="action">JR篠山口駅 集合</span></li>
+                <li><span class="time">&nbsp;</span> <span class="action">陶芸家〇〇さんのところで作陶</span></li>
+                <li><span class="time">&nbsp;</span> <span class="action">（　　　）を購入</span></li>
+                <li><span class="time">&nbsp;</span> <span class="action">〇〇で夕食</span></li>
+              </ul>
+              
+              <h4 class="schedule-day mt-4">2日目（7/12 日）</h4>
+              <ul class="schedule-list">
+                <li><span class="time">AM</span> <span class="action">お宿で朝食</span></li>
+                <li><span class="time">&nbsp;</span> <span class="action">○○で（内容未確定）</span></li>
+                <li><span class="time">PM</span> <span class="action">JR篠山口駅 送迎・解散</span></li>
+              </ul>
+            </div>
+            
+            <h3 class="content-heading mt-5">料金に含まれるもの</h3>
+            <p>体験費（材料費込み）、宿泊費、食糧費（夕食・朝食）、市内移動・地元案内費、旅行保険料</p>
+          </div>
+          
+          <div class="detail-sidebar">
+            <div class="info-card">
+              <h4 class="info-card-title">基本情報</h4>
+              
+              <dl class="info-list">
+                <dt>日程</dt>
+                <dd>2026年8月22日（土）〜23日（日）</dd>
+                
+                <dt>定員</dt>
+                <dd>最大10名 / 最少催行5名</dd>
+                
+                <dt>催行決定判断</dt>
+                <dd>14日前<br><small>（6/27までに全員へご連絡いたします）</small></dd>
+                
+                <dt>料金（お一人様価格）</dt>
+                <dd>
+                  大人・高校生以上：<span class="price">78,000</span>円<br>
+                  小学生以上：8,000～10,000円<br>
+                  <small>乳児・幼児：無料（添い寝・食事持込）</small>
+                </dd>
+              </dl>
+              
+              <div class="cancel-policy">
+                <h5>キャンセル料規定</h5>
+                <ul class="compact-list">
+                  <li><strong>1週間前:</strong> 20%</li>
+                  <li><strong>3日前:</strong> 30%</li>
+                  <li><strong>前日:</strong> 40%</li>
+                  <li><strong>当日:</strong> 50%</li>
+                  <li><strong>開始後・無連絡:</strong> 100%</li>
+                </ul>
+              </div>
+              
+              <a href="#" class="btn-primary w-100 text-center mt-4">このプログラムを申し込む</a>
+              <a href="index.html#stay" class="btn-text w-100 text-center mt-3">一覧へ戻る</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Same as index.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <h2>丹波篠山</h2>
+          <p>"里山暮らし"</p>
+        </div>
+        
+        <div class="footer-links">
+          <ul class="footer-nav">
+            <li><a href="index.html#home">HOME</a></li>
+            <li><a href="index.html#stay">Stay</a></li>
+            <li><a href="index.html#news">News</a></li>
+            <li><a href="index.html#about">About us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          
+          <ul class="footer-subnav">
+            <li><a href="index.html#contact">会社案内</a></li>
+            <li><a href="download.html">各種カタログダウンロード</a></li>
+          </ul>
+          
+          <ul class="footer-legal">
+            <li><a href="#">旅行業約款(PDF)</a></li>
+            <li><a href="#">旅行条件書(PDF)</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>一般社団法人ウイズささやま<br>
+        〒669-2321 兵庫県丹波篠山市黒岡191 丹波篠山市民センター内  079-552-7373</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
