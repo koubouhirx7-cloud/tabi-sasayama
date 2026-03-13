@@ -437,8 +437,8 @@ img {
 }
 .map-pin {
   position: absolute;
-  top: 58%; /* Roughly Hyogo/Tanba-Sasayama on this map */
-  left: 36%;
+  top: 60%; /* Adjusted for new map image */
+  left: 32%; /* Adjusted for new map image */
   display: flex;
   flex-direction: column;
   align-items: center;
