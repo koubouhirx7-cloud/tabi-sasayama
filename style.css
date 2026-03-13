@@ -421,15 +421,65 @@ img {
   align-items: center;
   padding-bottom: 60px;
 }
-.japan-map {
+.location-map-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.map-container {
+  position: relative;
+  width: 250px; /* Sizing the Japan map */
+}
+.japan-map-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+}
+.map-pin {
   position: absolute;
-  left: -50px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 400px;
-  opacity: 0.1;
-  z-index: 0;
-  pointer-events: none;
+  top: 58%; /* Roughly Hyogo/Tanba-Sasayama on this map */
+  left: 36%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+}
+.pin-text {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+.pin-text small {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+.pin-text::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--color-primary) transparent transparent transparent;
+}
+.pin-pointer {
+  width: 14px;
+  height: 14px;
+  background: #c0392b;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
 .guides-grid {
@@ -476,14 +526,6 @@ img {
   border: 1px dashed var(--color-primary);
   width: 100%;
   max-width: 600px;
-}
-
-.dialogue-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  font-family: var(--font-accent);
-  text-align: center;
 }
 
 .dialogue-bubbles {

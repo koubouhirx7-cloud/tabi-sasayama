@@ -206,7 +206,7 @@
 
     <!-- ABOUT SECTION -->
     <section id="about" class="about-section">
-      <div class="about-vision" style="background-image: url('写真/gallery_20260313093222.jpg">
+      <div class="about-vision" style="background-image: url('写真/gallery_20260313093222.jpg');">
         <div class="overlay"></div>
         <div class="container relative">
           <h2 class="section-title white">
@@ -237,7 +237,15 @@
           <p class="guide-desc">→運営人たち（仲介役はこんな人だよイメージ・素な感じを表現）</p>
 
           <div class="guide-map-area">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Japan_map_blank.svg" alt="日本地図" class="japan-map">
+            <div class="location-map-wrapper">
+              <div class="map-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Japan_map_blank.svg" alt="日本地図" class="japan-map-img">
+                <div class="map-pin">
+                  <span class="pin-text">「ここらへんの田舎」<br><small>丹波篠山</small></span>
+                  <div class="pin-pointer"></div>
+                </div>
+              </div>
+            </div>
             
             <div class="guides-grid">
               <!-- Guide 1 -->
@@ -268,7 +276,6 @@
             </div>
 
             <div class="dialogue-box">
-              <h4 class="dialogue-title">「ここらへんの田舎」</h4>
               <div class="dialogue-bubbles">
                 <p class="bubble left">大変なこといっぱい、やで〜</p>
                 <p class="bubble right">いや、なんとかなる</p>
